@@ -1,0 +1,27 @@
+{
+  "name": "happy-tails",
+  "version": "1.0.0",
+  "description": "An application for finding the best hiking trails for you and pup",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Happy-Tails/Happy-Tails.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Happy-Tails/Happy-Tails/issues"
+  },
+  "homepage": "https://github.com/Happy-Tails/Happy-Tails#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mysql2": "^1.5.3",
+    "path": "^0.12.7",
+    "sequelize": "^4.37.7"
+  }
+}
