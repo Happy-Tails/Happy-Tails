@@ -4,7 +4,7 @@ var express = require("express");
 var router = express.Router();
 var path = require("path");
 router.get("/",function(req,res){
-    res.sendFile(path.join(__dirname, "../views/index.html"));
+    res.sendFile(path.join(__dirname, "../views/layouts/index.html"));
 });
 router.get("/form",function(req,res){
 
