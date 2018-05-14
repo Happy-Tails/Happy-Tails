@@ -6,11 +6,15 @@ module.exports = function(sequelize,dataTypes){
 };
 
 function showTrail() {
-    var url = "https://trailapi-trailapi.p.mashape.com/?lat=34.1&limit=25&lon=-105.2&q[activities_activity_type_name_eq]=hiking&q[city_cont]=Denver&q[country_cont]=Australia&q[state_cont]=California&radius=25";
+    //full url for creating the queryURL
+    // var url = "https://trailapi-trailapi.p.mashape.com/?lat=34.1&limit=25&lon=-105.2&q[activities_activity_type_name_eq]=hiking&q[city_cont]=Denver&q[country_cont]=Australia&q[state_cont]=California&radius=25";
 
     var city = $(this).val()("city");
+    console.log(city);
     var state = $(this).val()("state");
+    console.log(state);
     var country = $(this).val()("country");
+    console.log(country);
     // (this is what I used to test api)
     // var country = "United States";
     // var state = "Ohio";
@@ -42,6 +46,13 @@ function showTrail() {
     //   // Displaying the rating
     //   trailDiv.append(trailRating);
     // });
+    
 }
 
 showTrail();
+
+$("#submit-trail").on("click", function(event){
+    event.preventDefault();
+    showTrail();
+});
+
