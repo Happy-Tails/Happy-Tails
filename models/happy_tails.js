@@ -8,9 +8,9 @@ module.exports = function(sequelize,dataTypes){
 function showTrail() {
     var url = "https://trailapi-trailapi.p.mashape.com/?lat=34.1&limit=25&lon=-105.2&q[activities_activity_type_name_eq]=hiking&q[city_cont]=Denver&q[country_cont]=Australia&q[state_cont]=California&radius=25";
 
-    var city = $(this).attr("city");
-    var state = $(this).attr("statee");
-    var country = $(this).attr("country");
+    var city = $(this).val()("city");
+    var state = $(this).val()("state");
+    var country = $(this).val()("country");
     // (this is what I used to test api)
     // var country = "United States";
     // var state = "Ohio";
