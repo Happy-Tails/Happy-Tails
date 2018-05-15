@@ -5,10 +5,9 @@ module.exports = function(sequelize,dataTypes){
     return Trail;
 };
 
-function showTrail() {
-    //full url for creating the queryURL
-    // var url = "https://trailapi-trailapi.p.mashape.com/?lat=34.1&limit=25&lon=-105.2&q[activities_activity_type_name_eq]=hiking&q[city_cont]=Denver&q[country_cont]=Australia&q[state_cont]=California&radius=25";
 
+<<<<<<< HEAD
+=======
     var city = $(this).val()("city");
     console.log(city);
     var state = $(this).val()("state");
@@ -31,8 +30,13 @@ function showTrail() {
             "X-Mashape-Key": "mdooQIOQIVmshTWRLBxh7vmwiYS3p1TjHYZjsnha3vcYMIF7Tl"
         }
     }).then(function (response) {
+<<<<<<< HEAD
         
         console.log(response);
+=======
+        var urlResponse = response;
+        console.log(urlResponse);
+>>>>>>> 26eae7f878aab7039834e58b09f3136c92bd832b
     });
 
     // // Need a div to hold the trial
@@ -56,4 +60,5 @@ $("#submit-trail").on("click", function(event){
     event.preventDefault();
     showTrail();
 });
+>>>>>>> d350149d850506f4bd1c38070f14c9161d8fdd72
 
