@@ -11,7 +11,7 @@
   text-align: center;
 }
 
-#log{
+h3{
   color: white;
 }
 
@@ -35,10 +35,6 @@
   align-items: center;
   text-align: center;
   }
-
-#mainsignup {
-  color:white;
-}
 
 #submit-signup{
   color: grey;
