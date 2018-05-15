@@ -33,9 +33,9 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </div>
   </nav>
 
@@ -87,6 +87,25 @@
       </div>
     </div>
   </div>
+
+  <!--Location Form-->
+  <form>
+    <div id="search-trail">
+      <h2>Find a Trail Near You!</h2>
+      <div class="form-row">
+        <div class="col-7">
+          <input id="city" type="text" class="form-control" placeholder="City">
+        </div>
+        <div class="col">
+          <input id="state" type="text" class="form-control" placeholder="State">
+        </div>
+        <div id="country" class="col">
+          <input type="text" class="form-control" placeholder="Zip">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg">Search Trails</button>
+    </div>
+  </form>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <!--link to happy_tails.js-->

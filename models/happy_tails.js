@@ -31,7 +31,8 @@ function showTrail() {
             "X-Mashape-Key": "mdooQIOQIVmshTWRLBxh7vmwiYS3p1TjHYZjsnha3vcYMIF7Tl"
         }
     }).then(function (response) {
-        console.log(response);
+        var urlResponse = response;
+        console.log(urlResponse);
     });
 
     // // Need a div to hold the trial
