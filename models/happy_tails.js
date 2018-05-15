@@ -1,18 +1,15 @@
-module.exports = function(sequelize,dataTypes){
-    var Trail = sequelize.define("Trail",{
+// module.exports = function(sequelize,dataTypes){
+//     var Trail = sequelize.define("Trail",{
         
-    });
-    return Trail;
-};
+//     });
+//     return Trail;
+// };
 
-
-<<<<<<< HEAD
-=======
-    var city = $(this).val()("city");
+    var city = $("#city").val();
     console.log(city);
-    var state = $(this).val()("state");
+    var state = $("#state").val();
     console.log(state);
-    var country = $(this).val()("country");
+    var country = $("#country").val();
     console.log(country);
     // (this is what I used to test api)
     // var country = "United States";
@@ -30,13 +27,8 @@ module.exports = function(sequelize,dataTypes){
             "X-Mashape-Key": "mdooQIOQIVmshTWRLBxh7vmwiYS3p1TjHYZjsnha3vcYMIF7Tl"
         }
     }).then(function (response) {
-<<<<<<< HEAD
-        
-        console.log(response);
-=======
         var urlResponse = response;
         console.log(urlResponse);
->>>>>>> 26eae7f878aab7039834e58b09f3136c92bd832b
     });
 
     // // Need a div to hold the trial
@@ -52,7 +44,6 @@ module.exports = function(sequelize,dataTypes){
     //   trailDiv.append(trailRating);
     // });
     
-}
 
 showTrail();
 
@@ -60,5 +51,4 @@ $("#submit-trail").on("click", function(event){
     event.preventDefault();
     showTrail();
 });
->>>>>>> d350149d850506f4bd1c38070f14c9161d8fdd72
 
