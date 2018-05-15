@@ -1,3 +1,41 @@
-#Login_Form {
-  margin-left: 30px;   
-};
+#login-form{
+  background-image: url("../images/hike-pic-login.jpg");
+  height: 100%;
+  width: 100%;
+  z-index: 1000;  
+  margin: auto;
+  position: absolute;
+  background-size: cover;
+  display:flex;
+  align-items: center;
+  text-align: center;
+}
+
+h3{
+  color: white;
+}
+
+#login-nav{
+  margin-bottom: 0px;
+}
+
+#home-nav{
+  margin-bottom: 0px; 
+}
+
+#signup-form{
+  background-image: url("../images/hike-pic-signup.jpg");
+  height: 100%;
+  width: 100%;
+  z-index: 1000;  
+  margin: auto;
+  position: absolute;
+  background-size: cover;
+  display:flex;
+  align-items: center;
+  text-align: center;
+  }
+
+#submit-signup{
+  color: grey;
+}
