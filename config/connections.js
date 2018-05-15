@@ -1,4 +1,4 @@
-var Sequelize = require("sequelize")
+var Sequelize = require("sequelize");
 
 
    var sequelize = new Sequelize ("sequelize_library","root","root",{  //the first argument should be my database if there is an error
