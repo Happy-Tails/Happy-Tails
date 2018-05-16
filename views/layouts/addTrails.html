@@ -1,0 +1,53 @@
+<!-- This is the page that the user can use to add trails to their account -->
+<!-- Page Title -->
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">City Tail Trail</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">Menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+                <a href="/view/happy_tails">
+                   View Profile
+                </a>
+            </li>
+            <li>
+                <a href="/view/trails">
+                    Add Trails
+                </a>
+            </li>
+            <li>
+                <a href="/user/logout">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>Log Out
+                </a>
+            </li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="/view/happy_tails">View Profile</a></li>
+            <li><a href="/view/trails">Add Trails</a></li>
+            <li><a href="/user/logout">Log Out</a>
+        </ul>
+    </div>
+</nav>
+
+<!-- Dynamically Render Trail Tiles -->
+<main id="tilesContent" >
+    <div class="tile card white">
+        <div class="card-content black-text">
+            <divcityName></div>
+            <div class="imgDiv" style="background-image: placeholder"></div>
+            <div class="plusMinusIcon" data-locationtype="city" data-locationid="trailId"><a class="btn btn-floating waves-effect waves-light teal darken-1"><i class="material-icons">add</i></a>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Link in jQuery -->
+<script type="text/javascript" src="/assets/javascript/jquery-3.1.1.min.js"></script> 
+<!-- Add Location to Trails -->
+<script type="text/javascript" src="/assets/javascript/add-trails.js"></script>
+
+
+<script type="text/javascript">
+    $( document ).ready(function(){
+        $(".button-collapse").sideNav();
+    });
+</script>
