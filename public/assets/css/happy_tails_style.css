@@ -1,3 +1,7 @@
+#home-nav{
+  margin-bottom: 0px; 
+}
+
 #login-form{
   background-image: url("../images/hike-pic-login.jpg");
   height: 100%;
@@ -15,12 +19,23 @@ h3{
   color: white;
 }
 
+#login-Text{
+  color: white;
+  margin-top: -200px;
+  margin-right: 35px;
+}
+
 #login-nav{
   margin-bottom: 0px;
 }
 
-#home-nav{
-  margin-bottom: 0px; 
+#login-email{
+  padding: 10px;
+}
+
+#login-password{
+  margin-right: 30px;
+  padding-bottom: 10px;
 }
 
 #signup-form{

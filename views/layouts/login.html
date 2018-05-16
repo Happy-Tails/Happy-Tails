@@ -41,21 +41,20 @@
         <form id="login-form" action="user/login" onsubmit="return validateForm()" method="post">
             <div class="row">
                 <div class="container" id="mainlogin">
-                    <h3>Log in </h3>
+                    <h3 id="login-Text">Log in </h3>
                     <div class="row">
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="username" type="email" class="validate" name="email" required>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6" id= "login-email">
+                            Email:
+                            <input id="email" type="email" class="validate" name="email" required>
+                            <label for="email"></label>
                         </div>
                     </div>
                     <div class="row">
                     </div>
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s6" id= "login-password">
                             Password:
                             <input id="password" type="password" class="validate" name="password" required>
                             <label for="password"></label>
