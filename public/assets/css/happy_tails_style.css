@@ -39,3 +39,48 @@ h3{
 #submit-signup{
   color: grey;
 }
+
+#mainsignup{
+  height: 550px;
+  width: 400px;
+  float: center;
+  padding: 40px;
+  margin-top:40px;
+  opacity: 0.9;
+  border-color: transparent;
+
+}
+
+#sup{
+  /*background-image: url(../images/dest1.jpg);*/
+  background-image: url(../images/singup.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+#navsign{
+  background: transparent;
+}
+
+#first_name{
+  padding: 10px;
+}
+
+#last_name{
+  padding-bottom: 10px;
+}
+
+#pups_name{
+  margin-right: 10px;
+  padding-bottom: 10px;
+}
+
+#supemail{
+  margin-left: 30px;
+  padding-bottom: 10px;
+}
+
+#suppassword{
+  padding-bottom: 10px;
+}
