@@ -1,12 +1,10 @@
 function showTrail() {
-    //full url for creating the queryURL
-    // var url = "https://trailapi-trailapi.p.mashape.com/?lat=34.1&limit=25&lon=-105.2&q[activities_activity_type_name_eq]=hiking&q[city_cont]=Denver&q[country_cont]=Australia&q[state_cont]=California&radius=25";
 
-    var city = $(this).val()("city");
+    var city = $("#city").val();
     console.log(city);
-    var state = $(this).val()("state");
+    var state = $("#state").val();
     console.log(state);
-    var country = $(this).val()("country");
+    var country = $("#country").val();
     console.log(country);
     // (this is what I used to test api)
     // var country = "United States";
@@ -16,7 +14,7 @@ function showTrail() {
     var queryURL = "https://trailapi-trailapi.p.mashape.com/?q[activities_activity_type_name_eq]=hiking&q[city_cont]=" + city + "&q[country_cont]=" + country + "&q[state_cont]=" + state;
 
     console.log(queryURL);
- 
+
     $.ajax({
         url: queryURL,
         method: "GET",
@@ -24,7 +22,8 @@ function showTrail() {
             "X-Mashape-Key": "mdooQIOQIVmshTWRLBxh7vmwiYS3p1TjHYZjsnha3vcYMIF7Tl"
         }
     }).then(function (response) {
-        console.log(response);
+        var urlResponse = response;
+        console.log(urlResponse);
     });
 
     // // Need a div to hold the trial
@@ -39,12 +38,11 @@ function showTrail() {
     //   // Displaying the rating
     //   trailDiv.append(trailRating);
     // });
-    
+
 }
 
-showTrail();
-
-$("#submit-trail").on("click", function(event){
+$("#submit-trail").on("click", function (event) {
     event.preventDefault();
     showTrail();
 });
+
