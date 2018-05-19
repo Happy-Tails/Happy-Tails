@@ -1,5 +1,5 @@
-function showTrail() {
-
+function searchTrail() {
+    $("#showTrailSearch").empty();
     var city = $("#city").val();
     console.log(city);
     var state = $("#state").val();
@@ -21,28 +21,37 @@ function showTrail() {
         headers: {
             "X-Mashape-Key": "mdooQIOQIVmshTWRLBxh7vmwiYS3p1TjHYZjsnha3vcYMIF7Tl"
         }
-    }).then(function (response) {
-        var urlResponse = response;
+    }).then(function (urlResponse) {
         console.log(urlResponse);
+
+        var trailArray = [];
+
+        urlResponse.places.forEach(function(singleTrail) {
+    
+            var name = singleTrail.name;
+            var description = singleTrail.description;
+            var length = singleTrail.activities[0].length;
+            //trailArray.push(trail);'
+            showTrail(name, description, length);
+              
+        });
+     
     });
-
-    // // Need a div to hold the trial
-    //   var trailDiv = $("<div class='trail'>");
-
-    //   // Storing the trail rating
-    //   var rating = response.rating;
-
-    //   // Creating an element to have the rating displayed
-    //   var trailRating = $("<p>").text("Rating: " + rating);
-
-    //   // Displaying the rating
-    //   trailDiv.append(trailRating);
-    // });
-
 }
 
+function showTrail(name, description, length){
+    $("#showTrailSearch").append(
+        "<div>" + 
+        "<h2 id='name'>" + name + "</h2>" +
+        "<h3 id='description'>" + description + "</h3>" +
+        "<p id='length'>" + length + " miles" + "</p>" +
+        "</div>"
+    );
+}
+
+
 $("#submit-trail").on("click", function (event) {
-    event.preventDefault();
-    showTrail();
-});
+            event.preventDefault();
+            searchTrail();
+        });
 
