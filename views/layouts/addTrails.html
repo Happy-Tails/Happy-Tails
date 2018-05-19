@@ -55,14 +55,15 @@
           <div class="col">
             <input id="state" type="text" class="form-control" placeholder="State">
           </div>
-          <div class="col">
-            <input id="country" type="text" class="form-control" placeholder="Country">
-          </div>
         </div>
         <button id="submit-trail" type="submit" class="btn btn-primary">Submit</button>
       </form>
 
-  <div class="row">
+  <div id="showTrailSearch">
+  </div>
+
+
+  <!-- <div class="row">
     <div class="col-sm-6">
       <div class="card" id="NewTrail">
         <div class="card-body">
@@ -104,19 +105,20 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
    
  <!-- Link in jQuery -->
 <script type="text/javascript" src="/assets/javascript/jquery-3.1.1.min.js"></script>
 <!-- Compiled and minified JavaScript (for modal) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <!-- Modal click Listener -->
 
 <script type="text/javascript" src="/assets/javascript/happy_tails.js"></script>
 <!-- Remove location from trails -->
 <script type="text/javascript" src="/assets/javascript/happy_tails-remove-location.js"></script>
 
+<script src="../../views/layouts/js/indexpage.js"></script>
 
 <script type="text/javascript">
     $( document ).ready(function(){
