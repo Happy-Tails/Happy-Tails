@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../public/assets/css/happy_tails_style.css">
+    <link rel="stylesheet" type="text/css" href="../../public/assets/css/happy_tails_style.css">
    
     <title>Hiking Tails</title>
    
 </head>
 
-<body>
+<body id="viewAccount">
 
   <!--Nav Bar-->
   <nav id='home-nav' class='navbar navbar-inverse'>
@@ -41,66 +41,56 @@
           <a class="nav-item nav-link active" href='./addTrail.html'>Add Trails</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
     </div>
   </nav>
 
+  <h2>Your Trails</h2>
 
-
-<div id="profileHeader" class="card">
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Your Trail List</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">Menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li>
-                    <a href="/view/trails">
-                        Add Trails
-                    </a>
-                </li>
-                <li>
-                    <a href="/user/logout">
-                        <i class="fa fa-sign-in" aria-hidden="true"></i>Log Out
-                    </a>
-                </li>
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-                <li><a href="/view/trails">Add Trails</a></li>
-                <li><a href="/user/logout">Log Out</a>
-            </ul>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card" id="usertrails">
+        <div class="card-body">
+          <h5 class="card-title" id="cardTitlet">Trail Name Here</h5>
+          <p class="card-text" id="cardText">API Info</p>
+          <a href="#" class="btn btn-primary">Go To Trail</a>
         </div>
-    </nav>
-</div>
-<div id="detail" class="card teal darken-1 profileDetails center-align">
-    <div class="card-content">
-        <p style="color: white; font-size: 20px;"><b>Name:</b> 
-        <p style="color: white; font-size: 18px;"><b>Email:</b>
-       
+      </div>
     </div>
-</div>
-</div>
-<!-- Page Content Container -->
-<div id="bottomContainer">
-    <!-- Trail (by city?) Container -->
-    <div class="card white" id="cityContainer">
-        <div class='center-align' style="font-size: 30px;">Trails you picked</div>
-        <!-- Dynamically Render TrailTiles -->
-        <main id="tilesContent">
-            <div class="tile card transparent">
-                <div class="card-content black-text">
-                    <div>cityName</div>
-                    <!-- Image API LINK HERE -->
-                    <div class="imgDiv" style="background-image: Placeholder"></div>
-                    <div class="plusMinusIcon" data-userid="Trail Likes" data-locationtype="city" data-locationid="locationId"><a class="btn btn-floating waves-effect waves-light"><i class="material-icons">Remove</i></a>
-                    </div>
-                </div>
-            </div>
-        
-        </main>
-    
+
+    <div class="col-sm-6">
+      <div class="card" id="usertrails">
+        <div class="card-body">
+          <h5 class="card-title" id="cardTitlet">Trail Name Here</h5>
+          <p class="card-text" id="cardText">API Info</p>
+          <a href="#" class="btn btn-primary">Go To Trail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card" id="usertrails" id="cardTitlet">
+        <div class="card-body">
+          <h5 class="card-title">Trail Name Here</h5>
+          <p class="card-text" id="cardText">API Info</p>
+          <a href="#" class="btn btn-primary">Go To Trail</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="card" id="usertrails">
+        <div class="card-body">
+          <h5 class="card-title" id="cardTitlet">Trail Name Here</h5>
+          <p class="card-text" id="cardText">API Info</p>
+          <a href="#" class="btn btn-primary">Go To Trail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
  <!-- Link in jQuery -->
 <script type="text/javascript" src="/assets/javascript/jquery-3.1.1.min.js"></script>
 <!-- Compiled and minified JavaScript (for modal) -->

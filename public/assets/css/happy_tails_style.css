@@ -111,3 +111,17 @@ h3{
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+#viewAccount{
+  background-image: url(../images/UserProfile.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+}
+#usertrails{
+  background-image: url(../images/UserProfile.jpg);
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  text-align: center;
+}
