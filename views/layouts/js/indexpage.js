@@ -27,16 +27,12 @@ function searchTrail() {
         var trailArray = [];
 
         urlResponse.places.forEach(function(singleTrail) {
-            // var trail = {
-            //     trailName: singleTrail.name,
-            //     trailDescription: singleTrail.description,
-            //     trailLength: singleTrail.activities.length,
-            // };
-            var name = singleTrail.name
-            var description = singleTrail.description
-            var length = singleTrail.activities[0].length
+    
+            var name = singleTrail.name;
+            var description = singleTrail.description;
+            var length = singleTrail.activities[0].length;
             //trailArray.push(trail);'
-            showTrail(name, description, length)
+            showTrail(name, description, length);
               
         });
      
@@ -47,8 +43,8 @@ function showTrail(name, description, length){
     $("#showTrailSearch").append(
         "<div>" + 
         "<h2 id='name'>" + name + "</h2>" +
-        "<h3 id='length'>" + description + "</h3>" +
-        "<p id='description'>" + length + " miles" + "</p>" +
+        "<h3 id='description'>" + description + "</h3>" +
+        "<p id='length'>" + length + " miles" + "</p>" +
         "</div>"
     );
 }
