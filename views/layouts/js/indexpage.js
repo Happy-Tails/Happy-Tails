@@ -47,7 +47,7 @@ function searchTrail() {
         trailInfo.append(trailName);
     });
 
-
+}
 
 $("#submit-trail").on("click", function (event) {
             event.preventDefault();
