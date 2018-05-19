@@ -4,14 +4,12 @@ function searchTrail() {
     console.log(city);
     var state = $("#state").val();
     console.log(state);
-    var country = $("#country").val();
-    console.log(country);
     // (this is what I used to test api)
     // var country = "United States";
     // var state = "Ohio";
     // var city = "Cleveland";
 
-    var queryURL = "https://trailapi-trailapi.p.mashape.com/?q[activities_activity_type_name_eq]=hiking&q[city_cont]=" + city + "&q[country_cont]=" + country + "&q[state_cont]=" + state;
+    var queryURL = "https://trailapi-trailapi.p.mashape.com/?q[activities_activity_type_name_eq]=hiking&q[city_cont]=" + city + "&q[country_cont]=United States" + "&q[state_cont]=" + state;
 
     console.log(queryURL);
 
