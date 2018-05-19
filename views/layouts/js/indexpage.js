@@ -1,4 +1,4 @@
-function showTrail() {
+function searchTrail() {
 
     var city = $("#city").val();
     console.log(city);
@@ -24,25 +24,33 @@ function showTrail() {
     }).then(function (response) {
         var urlResponse = response;
         console.log(urlResponse);
+
+        // Need a div to hold the trail info
+        var trailInfo = $("<div class='trail'>");
+
+        //Storing the trial name
+        var trailName = response.name;
+        console.log(trailName);
+
+        //Storing the trail description
+        var trailDescription = response.description;
+        console.log(trailDescription);
+
+        //Storing the trail length
+        var trailLength = response.activies.length;
+        console.log(trailLength);
+
+        // Creating an element to have the rating displayed
+        var showTrail = $("<p>").text("Trail Name: " + trailName);
+
+        // Displaying the rating
+        trailInfo.append(trailName);
     });
 
-    // // Need a div to hold the trial
-    //   var trailDiv = $("<div class='trail'>");
 
-    //   // Storing the trail rating
-    //   var rating = response.rating;
-
-    //   // Creating an element to have the rating displayed
-    //   var trailRating = $("<p>").text("Rating: " + rating);
-
-    //   // Displaying the rating
-    //   trailDiv.append(trailRating);
-    // });
-
-}
 
 $("#submit-trail").on("click", function (event) {
-    event.preventDefault();
-    showTrail();
-});
+            event.preventDefault();
+            searchTrail();
+        });
 
