@@ -1,5 +1,5 @@
 function searchTrail() {
-
+    $("#showTrailSearch").empty();
     var city = $("#city").val();
     console.log(city);
     var state = $("#state").val();
@@ -21,33 +21,38 @@ function searchTrail() {
         headers: {
             "X-Mashape-Key": "mdooQIOQIVmshTWRLBxh7vmwiYS3p1TjHYZjsnha3vcYMIF7Tl"
         }
-    }).then(function (response) {
-        var urlResponse = response;
+    }).then(function (urlResponse) {
         console.log(urlResponse);
 
-        // Need a div to hold the trail info
-        var trailInfo = $("<div class='trail'>");
+        var trailArray = [];
 
-        //Storing the trial name
-        var trailName = response.name;
-        console.log(trailName);
-
-        //Storing the trail description
-        var trailDescription = response.description;
-        console.log(trailDescription);
-
-        //Storing the trail length
-        var trailLength = response.activies.length;
-        console.log(trailLength);
-
-        // Creating an element to have the rating displayed
-        var showTrail = $("<p>").text("Trail Name: " + trailName);
-
-        // Displaying the rating
-        trailInfo.append(trailName);
+        urlResponse.places.forEach(function(singleTrail) {
+            // var trail = {
+            //     trailName: singleTrail.name,
+            //     trailDescription: singleTrail.description,
+            //     trailLength: singleTrail.activities.length,
+            // };
+            var name = singleTrail.name
+            var description = singleTrail.description
+            var length = singleTrail.activities[0].length
+            //trailArray.push(trail);'
+            showTrail(name, description, length)
+              
+        });
+     
     });
-
 }
+
+function showTrail(name, description, length){
+    $("#showTrailSearch").append(
+        "<div>" + 
+        "<h2 id='name'>" + name + "</h2>" +
+        "<h3 id='length'>" + description + "</h3>" +
+        "<p id='description'>" + length + " miles" + "</p>" +
+        "</div>"
+    );
+}
+
 
 $("#submit-trail").on("click", function (event) {
             event.preventDefault();
