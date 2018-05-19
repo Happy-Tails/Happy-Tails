@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
       trailName: DataTypes.STRING,
       trailImageURL: DataTypes.STRING
    })
+   return Trails;
 };
     
   

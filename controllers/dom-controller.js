@@ -46,23 +46,28 @@ function isUser(req, res, next){
 
 // Index Home Page Render
 domRouter.get('/', function (req, res){
-  res.render('index');
+  res.sendFile(path.join(__dirname, "../views/layouts/index.html"));
 });
 
 
 // Sign up Page (DOM Render)
 domRouter.get('/signup', function (req, res){
-  res.render('signup');
+  res.sendFile(path.join(__dirname,"../views/layouts/signup.html"));
 });
 
 
 // Login Page (DOM Render)
 domRouter.get('/login', function (req, res){
-  res.render('login');
+  res.sendFile(path.join(__dirname,"../views/layouts/login.html"));
 });
 
+domRouter.get('/viewAccount',function(req,res){
+  res.sendFile(path.join(__dirname,"../views/layouts/viewAccount.html"));
+})
 
-
+domRouter.get('/addTrails',function(req,res){
+  res.sendFile(path.join(__dirname,"../views/layouts/addTrails.html"));
+})
 // LOGIN, LOGOUT, & SIGN-UP ROUTES
 // ----------------------------------------------------
 domRouter.post('/user/login', function(req, res, next) {
