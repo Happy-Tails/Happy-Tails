@@ -12,7 +12,7 @@ $(document).ready(function(){
         $.ajax({
             url: "/user/signup",
             method: "PUT",
-            data:cred
+            data: cred
         }).then(function(){
             console.log("successful")
         })

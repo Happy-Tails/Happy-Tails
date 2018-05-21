@@ -5,6 +5,9 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 8080;
 
+
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -14,7 +17,7 @@ var route1 = require("./controllers/crud-controller.js");
 var route2 = require("./controllers/dom-controller.js");
 app.use(route1);
 app.use(route2);
-//linking passport username and passport authentication
+
 
 db.sequelize.sync({force:true}).then(function(){ //only use force true for testing force:true will drop and replace the database
     app.listen(PORT, function() {

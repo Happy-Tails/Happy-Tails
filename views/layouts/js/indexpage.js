@@ -1,3 +1,15 @@
+$(document).ready(function(){
+    $("#test").text(localStorage.getItem("email"))
+})
+
+
+
+
+
+
+
+
+
 function showTrail() {
 
     var city = $("#city").val();
