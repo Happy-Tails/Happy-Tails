@@ -12,7 +12,7 @@ crudRouter.post("/user/signup",function(req,res){
       "password":req.body.password,
       "firstName":req.body.firstName,
       "lastName":req.body.lastName,
-      "pupName":req.body.pupName
+      "pupsName":req.body.pupName
   }).then(() =>{
       res.redirect("/")
   }).catch((err)=>{
