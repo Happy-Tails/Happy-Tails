@@ -39,11 +39,21 @@ function searchTrail() {
 
 function showTrail(name, description, length){
     $("#showTrailSearch").append(
-        "<div>" + 
-        "<h2 id='name'>" + name + "</h2>" +
-        "<h3 id='description'>" + description + "</h3>" +
-        "<p id='length'>" + length + " miles" + "</p>" +
+        "<div class='row'>" + 
+        "<div class='col-sm-6'>" +
+        "<div class='card' id='NewTrail'>" +
+        "<div class='card-body'>" + 
+        "<h5 class='card-title' id='AddCardTitle'>Trail Name Here</h5>" +
+        "<p class='card-text' id='AddCardText'>API Info</p>" +
+        "<a href='#'' class='btn btn-primary'>Add Trail</a>" +
+        "</div>" +
+        "</div>" +
         "</div>"
+
+        // "<h2 id='name'>" + name + "</h2>" +
+        // "<h3 id='description'>" + description + "</h3>" +
+        // "<p id='length'>" + length + " miles" + "</p>" +
+        // "</div>"
     );
 }
 
