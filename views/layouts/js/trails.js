@@ -1,59 +1,59 @@
-function initMap() {
-    var chicago = new google.maps.LatLng(41.850, -87.650);
+var placeSearch, autocomplete;
+var componentForm = {
+  street_number: 'short_name',
+  route: 'long_name',
+  locality: 'long_name',
+  administrative_area_level_1: 'short_name',
+  // country: 'long_name',
+  // postal_code: 'short_name'
+};
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: chicago,
-      zoom: 3
+function initAutocomplete() {
+  // Create the autocomplete object, restricting the search to geographical
+  // location types.
+  autocomplete = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+      {types: ['geocode']});
+
+  // When the user selects an address from the dropdown, populate the address
+  // fields in the form.
+  autocomplete.addListener('place_changed', fillInAddress);
+}
+
+function fillInAddress() {
+  // Get the place details from the autocomplete object.
+  var place = autocomplete.getPlace();
+
+  for (var component in componentForm) {
+    document.getElementById(component).value = '';
+    document.getElementById(component).disabled = false;
+  }
+
+  // Get each component of the address from the place details
+  // and fill the corresponding field on the form.
+  for (var i = 0; i < place.address_components.length; i++) {
+    var addressType = place.address_components[i].types[0];
+    if (componentForm[addressType]) {
+      var val = place.address_components[i][componentForm[addressType]];
+      document.getElementById(addressType).value = val;
+    }
+  }
+}
+
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
+      autocomplete.setBounds(circle.getBounds());
     });
-
-    var coordInfoWindow = new google.maps.InfoWindow();
-    coordInfoWindow.setContent(createInfoWindowContent(chicago, map.getZoom()));
-    coordInfoWindow.setPosition(chicago);
-    coordInfoWindow.open(map);
-
-    map.addListener('zoom_changed', function() {
-      coordInfoWindow.setContent(createInfoWindowContent(chicago, map.getZoom()));
-      coordInfoWindow.open(map);
-    });
   }
+}
 
-  var TILE_SIZE = 256;
 
-  function createInfoWindowContent(latLng, zoom) {
-    var scale = 1 << zoom;
-
-    var worldCoordinate = project(latLng);
-
-    var pixelCoordinate = new google.maps.Point(
-        Math.floor(worldCoordinate.x * scale),
-        Math.floor(worldCoordinate.y * scale));
-
-    var tileCoordinate = new google.maps.Point(
-        Math.floor(worldCoordinate.x * scale / TILE_SIZE),
-        Math.floor(worldCoordinate.y * scale / TILE_SIZE));
-
-    return [
-      'Chicago, IL',
-      'LatLng: ' + latLng,
-      'Zoom level: ' + zoom,
-      'World Coordinate: ' + worldCoordinate,
-      'Pixel Coordinate: ' + pixelCoordinate,
-      'Tile Coordinate: ' + tileCoordinate
-    ].join('<br>');
-  }
-
-  // The mapping between latitude, longitude and pixels is defined by the web
-  // mercator projection.
-  function project(latLng) {
-    var siny = Math.sin(latLng.lat() * Math.PI / 180);
-
-    // Truncating to 0.9999 effectively limits latitude to 89.189. This is
-    // about a third of a tile past the edge of the world tile.
-    siny = Math.min(Math.max(siny, -0.9999), 0.9999);
-
-    return new google.maps.Point(
-        TILE_SIZE * (0.5 + latLng.lng() / 360),
-        TILE_SIZE * (0.5 - Math.log((1 + siny) / (1 - siny)) / (4 * Math.PI)));
-  }
-
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNH4qfKT5taHLKuRzriq8txXjubvcFcTw&callback=initMap">
