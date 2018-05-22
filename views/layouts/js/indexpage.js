@@ -43,8 +43,8 @@ function showTrail(name, description, length){
         "<div class='col-sm-6'>" +
         "<div class='card' id='NewTrail'>" +
         "<div class='card-body'>" + 
-        "<h5 class='card-title' id='AddCardTitle'>Trail Name Here</h5>" +
-        "<p class='card-text' id='AddCardText'>API Info</p>" +
+        "<h2 class='card-title' id='AddCardTitle'>" + name + "</h2>" +
+        "<p class='card-text' id='AddCardText'>" + description + "</p>" +
         "<a href='#'' class='btn btn-primary'>Add Trail</a>" +
         "</div>" +
         "</div>" +
