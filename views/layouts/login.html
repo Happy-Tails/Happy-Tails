@@ -17,17 +17,17 @@
     <nav id='home-nav' class='navbar navbar-inverse'>
         <div class='container-fluid'>
             <div class='navbar-header'>
-                <a class='navbar-brand' href='index.html'>Hiking Tails</a>
+                <a class='navbar-brand' href='/index'>Hiking Tails</a>
             </div>
             <ul class='nav navbar-nav'>
                 <li>
-                    <a class="nav-item nav-link active" href='./index.html'>Home</a>
+                    <a class="nav-item nav-link active" href='./index'>Home</a>
                 </li>
                 <li>
-                    <a class="nav-item nav-link active" href='./login.html'>Log In</a>
+                    <a class="nav-item nav-link active" href='./login'>Log In</a>
                 </li>
                 <li>
-                    <a class="nav-item nav-link active" href='./signup.html'>Sign Up</a>
+                    <a class="nav-item nav-link active" href='./signup'>Sign Up</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -38,7 +38,7 @@
     </nav>
 
     <div id="log">
-        <form id="login-form" action="user/login" onsubmit="return validateForm()" method="post">
+        
             <div class="row">
                 <div class="container" id="mainlogin">
                     <h3 id="login-Text">Log in </h3>
@@ -47,7 +47,7 @@
                     <div class="row">
                         <div class="input-field col s6" id= "login-email">
                             Email:
-                            <input id="email" type="email" class="validate" name="email" required>
+                            <input id="email" type="email" class="validate" name="email" placeholder="" required>
                             <label for="email"></label>
                         </div>
                     </div>
@@ -64,11 +64,11 @@
                         <div class="col s12">
                         </div>
                         <a href="#">
-                            <button class="btn" type="submit" value="Log in">Log in </button>
+                            <button id="submit-signin" value="Log in">Log in </button>
                         </a>
                     </div>
                 </div>
-        </form>
+        
 
         <!-- alternate login form (copied from Bootstrap-->
         <!-- Login Form-->
@@ -88,6 +88,65 @@
             </div>
         </form> -->
         </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+        $(document).ready(function(){
+    
+    $("#email").attr("placeholder",sessionStorage.getItem("emailPlaceholder")|| "abcd@domain.net")
+    $(document).on("click","#submit-signin",function(){
+        
+        
+        var cred = {
+            email: $("#email").val().trim(),
+            password: $("#password").val().trim()
+        };
+        
+        $.ajax({
+            url: "/user/login/"+cred.email+"/"+cred.password,
+            type: "GET",
+            
+        }).then(function(data,err){
+            
+            if(data){
+               console.log("successful,"+data.email+" "+data.password)
+               
+               localStorage.setItem("email",data.email);
+               localStorage.setItem("password",data.password); 
+            }
+            else{
+            console.log("cant find");
+               $("#email").empty();
+               $("#password").empty();
+               sessionStorage.setItem("emailPlaceholder","cannot find email and/or password"); 
+            }
+        })
+    });
+
+    // var checkLogin = function(event){
+    //     //event.preventDefault()
+    //     var cred = {
+    //         email: $("#username").val().trim(),
+    //         password: $("#password").val().trim(),
+    //     };
+    //     $.ajax({
+    //         url: "/api/login/",
+    //         method: "GET",
+            
+    //     }).then(function(data){
+    //         if(data){
+    //            console.log("successful,"+data.email+" "+data.password)
+               
+    //            localStorage.setItem("email",data.email);
+    //            localStorage.setItem("password",data.password); 
+    //         }
+    //         else{
+    //            $("#username").empty();
+    //            $("#password").empty();
+    //            $("#username").attr("placeholder","email or password not found") 
+    //         }
+    //     })
+    // }
+})</script>
 </body>
 
 </html>

@@ -17,7 +17,7 @@ module.exports = function(sequelize,dataTypes){
             "type": dataTypes.STRING,
             "allowNull":false
         },
-        "pupName":{
+        "pupsName":{
             type:dataTypes.STRING
         }
     })

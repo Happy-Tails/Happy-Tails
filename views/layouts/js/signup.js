@@ -10,9 +10,9 @@ $(document).ready(function(){
             lastName:$("#lastName").val().trim()
         };
         $.ajax({
-            url: "/api/login",
+            url: "/user/signup",
             method: "PUT",
-            data:cred
+            data: cred
         }).then(function(){
             console.log("successful")
         })
