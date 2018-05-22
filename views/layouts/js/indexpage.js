@@ -45,7 +45,8 @@ function showTrail(name, description, length){
         "<div class='card-body'>" + 
         "<h2 class='card-title' id='AddCardTitle'>" + name + "</h2>" +
         "<p class='card-text' id='AddCardText'>" + description + "</p>" +
-        "<a href='viewAccount.html' id='addNewTrail' class='btn btn-primary'>Add Trail</a>" +
+        "<p id='length'>" + length + " miles" + "</p>" +
+        "<button id='addNewTrail' class='btn btn-primary'>Add Trail</button>" +
         "</div>" +
         "</div>" +
         "</div>"
@@ -63,10 +64,11 @@ function addTrail(name, description, length){
     $("#addedTrails").append(
         "<div class='row'>" + 
         "<div class='col-sm-6'>" +
-        "<div class='card'>" +
+        "<div class='card' id='usertrails'>" +
         "<div class='card-body'>" + 
-        "<h2 class='card-title' id='AddCardTitle'>" + name + "</h2>" +
-        "<p class='card-text' id='AddCardText'>" + description + "</p>" +
+        "<h2 class='card-title' id='UserCardTitle'>" + name + "</h2>" +
+        "<p class='card-text' id='UserCardText'>" + description + "</p>" +
+        "<p id='length'>" + length + " miles" + "</p>" +
         "<a href='www.google.com'' class='btn btn-primary'>Go to Trail</a>" +
         "</div>" +
         "</div>" +
@@ -74,7 +76,8 @@ function addTrail(name, description, length){
     );
 }
 
-$("#addNewTrail").on("click", function(event){
+$(document).on("click", "#addNewTrail", function(event){
     event.preventDefault();
     addTrail();
+    window.location.href ="viewAccount.html";
 });
