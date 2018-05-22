@@ -3,11 +3,16 @@ var express = require('express');
 var crudRouter = express.Router();
 var models = require('../models'); // Pulls out the Models
 
+//Do we need to put a connection.connection function here?
 
 // POST/API Routes for Database changes
 
 //CRUD
-function createProduct() {
+
+//caling our createTrail function
+createTrail();
+
+function createTrail() {
     console.log("Adding your new trail...\n");
     var query = connection.query(
     //Need to put in correct table name
