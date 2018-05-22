@@ -45,6 +45,7 @@ function showTrail(name, description, length){
         "<div class='card-body'>" + 
         "<h2 class='card-title' id='AddCardTitle'>" + name + "</h2>" +
         "<p class='card-text' id='AddCardText'>" + description + "</p>" +
+        "<p id='length'>" + length + " miles" + "</p>" +
         "<button id='addNewTrail' class='btn btn-primary'>Add Trail</button>" +
         "</div>" +
         "</div>" +
@@ -67,6 +68,7 @@ function addTrail(name, description, length){
         "<div class='card-body'>" + 
         "<h2 class='card-title' id='UserCardTitle'>" + name + "</h2>" +
         "<p class='card-text' id='UserCardText'>" + description + "</p>" +
+        "<p id='length'>" + length + " miles" + "</p>" +
         "<a href='www.google.com'' class='btn btn-primary'>Go to Trail</a>" +
         "</div>" +
         "</div>" +
