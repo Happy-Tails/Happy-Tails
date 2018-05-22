@@ -45,17 +45,13 @@ function showTrail(name, description, length){
         "<div class='card-body'>" + 
         "<h2 class='card-title' id='AddCardTitle'>" + name + "</h2>" +
         "<p class='card-text' id='AddCardText'>" + description + "</p>" +
-        "<a href='#'' class='btn btn-primary'>Add Trail</a>" +
+        "<a href='viewAccount.html' id='addNewTrail' class='btn btn-primary'>Add Trail</a>" +
         "</div>" +
         "</div>" +
         "</div>"
-
-        // "<h2 id='name'>" + name + "</h2>" +
-        // "<h3 id='description'>" + description + "</h3>" +
-        // "<p id='length'>" + length + " miles" + "</p>" +
-        // "</div>"
     );
 }
+
 
 
 $("#submit-trail").on("click", function (event) {
@@ -63,3 +59,22 @@ $("#submit-trail").on("click", function (event) {
             searchTrail();
         });
 
+function addTrail(name, description, length){
+    $("#addedTrails").append(
+        "<div class='row'>" + 
+        "<div class='col-sm-6'>" +
+        "<div class='card'>" +
+        "<div class='card-body'>" + 
+        "<h2 class='card-title' id='AddCardTitle'>" + name + "</h2>" +
+        "<p class='card-text' id='AddCardText'>" + description + "</p>" +
+        "<a href='www.google.com'' class='btn btn-primary'>Go to Trail</a>" +
+        "</div>" +
+        "</div>" +
+        "</div>"
+    );
+}
+
+$("#addNewTrail").on("click", function(event){
+    event.preventDefault();
+    addTrail();
+});
