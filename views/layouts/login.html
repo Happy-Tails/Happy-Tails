@@ -9,8 +9,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="../../public/assets/css/happy_tails_style.css">
     <title>Sign Up</title>
+=======
+    <link rel="stylesheet" type="text/css" href="./assets/css/happy_tails_style.css">
+    <title>Log In</title>
+>>>>>>> 80bd4600729a04db9b2312ba19836d83532bdaec
 </head>
 
 <body>
@@ -82,6 +87,7 @@
                 <input id="submit-signup" class="btn" type="submit" value="Submit">
             </div>
         </div>
+<<<<<<< HEAD
     </form>
     <!--alternate sign in form (copied from Bootstrap-->
     <!-- <form>
@@ -114,6 +120,67 @@
             </div>
         </form> -->
     </div>
+=======
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+        $(document).ready(function(){
+    
+    $("#email").attr("placeholder",sessionStorage.getItem("emailPlaceholder")|| "abcd@domain.net")
+    $(document).on("click","#submit-signin",function(){
+        
+        
+        var cred = {
+            email: $("#email").val().trim(),
+            password: $("#password").val().trim()
+        };
+        
+        $.ajax({
+            url: "/user/login/"+cred.email+"/"+cred.password,
+            type: "GET",
+            
+        }).then(function(data,err){
+            
+            if(data){
+               console.log("successful,"+data.email+" "+data.password)
+               
+               localStorage.setItem("email",data.email);
+               localStorage.setItem("password",data.password); 
+            }
+            else{
+            console.log("cant find");
+               $("#email").empty();
+               $("#password").empty();
+               sessionStorage.setItem("emailPlaceholder","cannot find email and/or password"); 
+            }
+        })
+    });
+
+    // var checkLogin = function(event){
+    //     //event.preventDefault()
+    //     var cred = {
+    //         email: $("#username").val().trim(),
+    //         password: $("#password").val().trim(),
+    //     };
+    //     $.ajax({
+    //         url: "/api/login/",
+    //         method: "GET",
+            
+    //     }).then(function(data){
+    //         if(data){
+    //            console.log("successful,"+data.email+" "+data.password)
+               
+    //            localStorage.setItem("email",data.email);
+    //            localStorage.setItem("password",data.password); 
+    //         }
+    //         else{
+    //            $("#username").empty();
+    //            $("#password").empty();
+    //            $("#username").attr("placeholder","email or password not found") 
+    //         }
+    //     })
+    // }
+})</script>
+>>>>>>> 80bd4600729a04db9b2312ba19836d83532bdaec
 </body>
 
 </html>

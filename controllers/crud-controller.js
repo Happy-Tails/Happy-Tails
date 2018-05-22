@@ -72,7 +72,7 @@ function createTrail() {
     db.Trails.update({
 
     }).then(function(err, res) {
-        console.log(res.affectedRows + " trails updated!\n");
+       // console.log(res.affectedRows + " trails updated!\n");
         // Call deleteTrail AFTER the UPDATE completes
         deleteTrail();
       });
