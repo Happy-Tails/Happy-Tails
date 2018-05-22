@@ -20,7 +20,7 @@ h3{
 }
 
 #login-Text{
-  color: white;
+  color: gray;
   margin-top: -200px;
   margin-right: 35px;
 }
@@ -99,3 +99,73 @@ h3{
 #suppassword{
   padding-bottom: 10px;
 }
+
+.container {
+  position: relative;
+  text-align: center;
+  color: gray;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#viewAccount{
+  background-image: url(../images/UserProfile.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+}
+#usertrails{
+  background-image: url(../images/UserProfile.jpg);
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+#addTrails{
+  background-image: url(../images/addTrails.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+}
+
+#NewTrail{
+  background-image: url(../images/addTrails.jpg);
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+#FindTrail{
+  margin: 10px;
+  width: 400px; 
+  
+}
+
+#video{
+width: 100%;
+height: 100%;
+}
+
+#footer{
+  background-color: black;
+	color: #F8F8FF;
+	clear: both;
+	text-align: center;
+	font-size: 10px;
+	padding: 20px;
+}
+
+#showTrailSearch {
+  display:flex;
+  text-align: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-self: auto;
+  color: black;
+};
