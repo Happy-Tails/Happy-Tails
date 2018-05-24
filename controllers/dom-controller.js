@@ -33,7 +33,9 @@ domRouter.get('/login', function (req, res){
 domRouter.get('/viewAccount',function(req,res){
   res.sendFile(path.join(__dirname,"../views/layouts/viewAccount.html"));
 })
-
+domRouter.get('/viewAccount.html',function(req,res){
+  res.sendFile(path.join(__dirname,"../views/layouts/viewAccount.html"));
+})
 domRouter.get('/addTrails',function(req,res){
   res.sendFile(path.join(__dirname,"../views/layouts/addTrails.html"));
 })
