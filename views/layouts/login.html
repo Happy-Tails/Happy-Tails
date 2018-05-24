@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../public/assets/css/happy_tails_style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/happy_tails_style.css">
     <title>Log In</title>
 </head>
 
@@ -88,7 +88,69 @@
             </div>
         </form> -->
         </div>
+<<<<<<< HEAD
       
+=======
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+        $(document).ready(function(){
+    
+    $("#email").attr("placeholder",sessionStorage.getItem("emailPlaceholder")|| "abcd@domain.net")
+    $(document).on("click","#submit-signin",function(){
+        
+        
+        var cred = {
+            email: $("#email").val().trim(),
+            password: $("#password").val().trim()
+        };
+        
+        $.ajax({
+            url: "/user/login/"+cred.email+"/"+cred.password,
+            type: "GET",
+            
+        }).then(function(data,err){
+            
+            if(data){
+               console.log("successful,"+data.email+" "+data.password)
+               
+               localStorage.setItem("email",data.email);
+               localStorage.setItem("password",data.password); 
+            }
+            else{
+            console.log("cant find");
+               $("#email").empty();
+               $("#password").empty();
+               sessionStorage.setItem("emailPlaceholder","cannot find email and/or password"); 
+            }
+        })
+    });
+
+    // var checkLogin = function(event){
+    //     //event.preventDefault()
+    //     var cred = {
+    //         email: $("#username").val().trim(),
+    //         password: $("#password").val().trim(),
+    //     };
+    //     $.ajax({
+    //         url: "/api/login/",
+    //         method: "GET",
+            
+    //     }).then(function(data){
+    //         if(data){
+    //            console.log("successful,"+data.email+" "+data.password)
+               
+    //            localStorage.setItem("email",data.email);
+    //            localStorage.setItem("password",data.password); 
+    //         }
+    //         else{
+    //            $("#username").empty();
+    //            $("#password").empty();
+    //            $("#username").attr("placeholder","email or password not found") 
+    //         }
+    //     })
+    // }
+})</script>
+>>>>>>> 832fedc0caf4418024167233d3b49717341ae110
 </body>
 
 </html>
