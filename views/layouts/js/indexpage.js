@@ -88,8 +88,9 @@ $(document).on("click", ".addNewTrail", function(event){
         length: length
     };
     $.ajax({
-        url: "/addtrail",
+        url: "/addTrail",
         method: "POST",
         body: data
     })
 });
+
