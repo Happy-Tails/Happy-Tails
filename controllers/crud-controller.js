@@ -60,75 +60,73 @@ crudRouter.post("/addTrail", function (req, res) {
   });
 
 //5. Create a GET route /getTrails. (in my indexpage.js correct?)
-crudRouter.get("/viewAccount", function(req, res){
+crudRouter.get("/getTrails", function(req, res){
 
 });
 //6. That route will do a in the .then of the AJAX, get the data and use data to display all of the trails the person saved
-
+//Isn't this^ what our readTrail() does in our CRUD?
+//I'm having trouble understanding when we great routes vs CRUD..how do we call CRUD functions from the browswer side?
 
   // CRUD function
 
-  // function createTrail() {
-  //     console.log("Adding your new trail...\n");
-  //     db.Trails.create({
-  //         name: "trail name",
-  //         description: "trail description",
-  //         length: "trail length"
-  //     }).then(function(err, res) {
-  //         console.log(res.affectedRows + " trail added!\n");
-  //         // Call updateTrail AFTER the INSERT completes
-  //         updateTrail();
-  //       });
-  //     //Need to put in correct table name
+  function createTrail() {
+      console.log("Adding your new trail...\n");
+      db.Trails.create({
+          name: "trail name",
+          description: "trail description",
+          length: "trail length"
+      }).then(function(err, res) {
+          console.log(res.affectedRows + " trail added!\n");
+          // Call updateTrail AFTER the INSERT completes
+          updateTrail();
+        });
+      //Need to put in correct table name
 
 
-  //     // logs the actual query being run
-  //     //console.log(query.sql);
-  //   }
+      // logs the actual query being run
+      //console.log(query.sql);
+    }
 
-  //   function updateTrail() {
-  //     console.log("Updating your saved trails...\n");
-  //     db.Trails.update({
+    function updateTrail() {
+      console.log("Updating your saved trails...\n");
+      db.Trails.update({
 
-  //     }).then(function(err, res) {
-  //        // console.log(res.affectedRows + " trails updated!\n");
-  //         // Call deleteTrail AFTER the UPDATE completes
-  //         deleteTrail();
-  //       });
-  //     //Need to put in the correct table name
+      }).then(function(err, res) {
+         console.log(res.affectedRows + " trails updated!\n");
+          // Call deleteTrail AFTER the UPDATE completes
+          deleteTrail();
+        });
+      //Need to put in the correct table name
+      // logs the actual query being run
+      //console.log(query.sql);
+    }
 
-
-
-  //     // logs the actual query being run
-  //     //console.log(query.sql);
-  //   }
-
-  //   function deleteTrail() {
-  //     console.log("Deleting selected trail...\n");
-  //     db.Trails.destroy({
-  //       where:{
-  //         id: req.params.id
-  //       }
-  //     }).then(function(err, res) {
-  //         console.log(res.affectedRows + " trail(s) deleted!\n");
-  //         // Call readTrails AFTER the DELETE completes
-  //         readTrails();
-  //       });
-  //     //Need to add correct tableName
+    function deleteTrail() {
+      console.log("Deleting selected trail...\n");
+      db.Trails.destroy({
+        where:{
+          id: req.params.id
+        }
+      }).then(function(err, res) {
+          console.log(res.affectedRows + " trail(s) deleted!\n");
+          // Call readTrails AFTER the DELETE completes
+          readTrails();
+        });
+      //Need to add correct tableName
 
 
-  //   }
+    }
 
-  //   function readTrails() {
-  //     console.log("Selecting all trails...\n");
-  //     db.Trails.findAll().then(function(res,err){
-  //       if (err) throw err;
-  //       // Log all results of the SELECT statement
-  //       console.log(res);
-  //       connection.end();
-  //     });
-  //   }
-  // createTrail();  
+    function readTrails() {
+      console.log("Selecting all trails...\n");
+      db.Trails.findAll().then(function(res,err){
+        if (err) throw err;
+        // Log all results of the SELECT statement
+        console.log(res);
+        connection.end();
+      });
+    }
+  createTrail();  
   // ----------------------------------------------------
 
   // Export routes
