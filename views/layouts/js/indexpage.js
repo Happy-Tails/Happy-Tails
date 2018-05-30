@@ -1,3 +1,4 @@
+console.log("I'm fucking connected");
 function searchTrail() {
     $("#showTrailSearch").empty();
     var city = $("#city").val();
@@ -56,6 +57,7 @@ function showTrail(name, description, length){
 
 
 $("#submit-trail").on("click", function (event) {
+            console.log("click");
             event.preventDefault();
             searchTrail();
         });
@@ -77,6 +79,7 @@ function addTrail(name, description, length){
 }
 
 $(document).on("click", ".addNewTrail", function(event){
+    console.log("click");
     event.preventDefault();
     addTrail();
     var name = $(this).attr("data-name");

@@ -46,8 +46,9 @@ crudRouter.get("/user/login/:user/:password", function (req, res) {
 
 //1. create POST route /addTrail
 crudRouter.post("/addTrail", function (req, res) {
-  //2. inside of that route, add that trail to the database 
-  //connect it to the user - HOW?
+console.log(req.body);
+//2. inside of that route, add that trail to the database 
+//connect it to the user - HOW?
   db.Trails.create({
     name: "trailName",
     description: "trailDescription",
@@ -69,23 +70,23 @@ crudRouter.get("/getTrails", function(req, res){
 
   // CRUD function
 
-  function createTrail() {
-      console.log("Adding your new trail...\n");
-      db.Trails.create({
-          name: "trail name",
-          description: "trail description",
-          length: "trail length"
-      }).then(function(err, res) {
-          console.log(res.affectedRows + " trail added!\n");
-          // Call updateTrail AFTER the INSERT completes
-          updateTrail();
-        });
+  // function createTrail() {
+  //     console.log("Adding your new trail...\n");
+  //     db.Trails.create({
+  //         name: "trail name",
+  //         description: "trail description",
+  //         length: "trail length"
+  //     }).then(function(err, res) {
+  //         console.log(res.affectedRows + " trail added!\n");
+  //         // Call updateTrail AFTER the INSERT completes
+  //         updateTrail();
+  //       });
       //Need to put in correct table name
 
 
       // logs the actual query being run
       //console.log(query.sql);
-    }
+    // }
 
     function updateTrail() {
       console.log("Updating your saved trails...\n");
@@ -126,7 +127,7 @@ crudRouter.get("/getTrails", function(req, res){
         connection.end();
       });
     }
-  createTrail();  
+  // createTrail();  
   // ----------------------------------------------------
 
   // Export routes
