@@ -1,4 +1,4 @@
-console.log("I'm fucking connected");
+console.log("I'm connected");
 function searchTrail() {
     $("#showTrailSearch").empty();
     var city = $("#city").val();
