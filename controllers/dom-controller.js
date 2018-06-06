@@ -39,6 +39,10 @@ domRouter.get('/viewAccount.html',function(req,res){
 domRouter.get('/addTrails',function(req,res){
   res.sendFile(path.join(__dirname,"../views/layouts/addTrails.html"));
 })
+
+
+
+
 // LOGIN, LOGOUT, & SIGN-UP ROUTES
 // ----------------------------------------------------
 // domRouter.get('/user/login/:email/:pass', function(req, res) {

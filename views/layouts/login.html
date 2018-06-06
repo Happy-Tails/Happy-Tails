@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -21,13 +22,13 @@
             </div>
             <ul class='nav navbar-nav'>
                 <li>
-                    <a class="nav-item nav-link active" href='./index'>Home</a>
+                    <a class="nav-item nav-link active" href='/index'>Home</a>
                 </li>
                 <li>
-                    <a class="nav-item nav-link active" href='./login'>Log In</a>
+                    <a class="nav-item nav-link active" href='/login'>Log In</a>
                 </li>
                 <li>
-                    <a class="nav-item nav-link active" href='./signup'>Sign Up</a>
+                    <a class="nav-item nav-link active" href='/signup'>Sign Up</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -37,59 +38,143 @@
         </div>
     </nav>
 
-    <div id="log">
-        
-            <div class="row">
-                <div class="container" id="mainlogin">
-                    <h3 id="login-Text">Log in </h3>
-                    <div class="row">
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6" id= "login-email">
-                            Email:
-                            <input id="email" type="email" class="validate" name="email" placeholder="" required>
-                            <label for="email"></label>
-                        </div>
-                    </div>
-                    <div class="row">
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6" id= "login-password">
-                            Password:
-                            <input id="password" type="password" class="validate" name="password" required>
-                            <label for="password"></label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                        </div>
-                        <a href="#">
-                            <button id="submit-signin" value="Log in">Log in </button>
-                        </a>
-                    </div>
-                </div>
-        
+    <!--why are these not aligned?-->
+    <form id="signup-form" action="user/signup" method="post">
 
-        <!-- alternate login form (copied from Bootstrap-->
-        <!-- Login Form-->
-        <!-- <form id="login-form">
-            <h2>Login!</h2>
-            <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+        <div class="container" id="mainsignup">
+            <h3>Sign Up</h3>
+            <div class="row">
+                <div class="input-field col s6" id="first_name">
+                    First Name:
+                    <input id="firstName" type="text" class="validate" name="firstName" required>
+                    <label for="first_name"></label>
+                </div>
+                <div class="input-field col s6" id= "last_name">
+                    Last Name:
+                    <input id="lastName" type="text" class="validate" name="lastName" required>
+                    <label for="last_name"></label>
+                </div>
+                <div class="input-field col s6" id="pups_name">
+                    Pup's Name:
+                    <input id="pupsName" type="text" class="validate" name="pupsName" required>
+                    <label for="pups_name"></label>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="input-field col s6" id="supemail">
+                    Email:
+                    <input id="username" type="email" class="validate" name="email" required>
+                    <label for="email"></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6" id="suppassword">
+                    Password:
+                    <input id="password" type="password" class="validate" name="password" required>
+                    <label for="password"></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                </div>
+                <input id="submit-signup" class="btn" type="submit" value="Submit">
+            </div>
+        </div>
+    </form>
+    <!--alternate sign in form (copied from Bootstrap-->
+    <!-- <form>
+            <h2>Sign Up!</h2>
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="First name">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Last name">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Pup's name">
+                </div>
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext
+          " id="staticEmail" value="email@example.com">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
                 </div>
             </div>
         </form> -->
-        </div>
+    </div>
+
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="./assets/js/signIn.js"></script>
+
+        <script>
+        $(document).ready(function(){
+    
+    $("#email").attr("placeholder",sessionStorage.getItem("emailPlaceholder")|| "abcd@domain.net")
+    $(document).on("click","#submit-signin",function(){
+        
+        
+        var cred = {
+            email: $("#email").val().trim(),
+            password: $("#password").val().trim()
+        };
+        
+        $.ajax({
+            url: "/user/login/"+cred.email+"/"+cred.password,
+            type: "GET",
+            
+        }).then(function(data,err){
+            
+            if(data){
+               console.log("successful,"+data.email+" "+data.password)
+               
+               localStorage.setItem("email",data.email);
+               localStorage.setItem("password",data.password); 
+            }
+            else{
+            console.log("cant find");
+               $("#email").empty();
+               $("#password").empty();
+               sessionStorage.setItem("emailPlaceholder","cannot find email and/or password"); 
+            }
+        })
+    });
+
+    // var checkLogin = function(event){
+    //     //event.preventDefault()
+    //     var cred = {
+    //         email: $("#username").val().trim(),
+    //         password: $("#password").val().trim(),
+    //     };
+    //     $.ajax({
+    //         url: "/api/login/",
+    //         method: "GET",
+            
+    //     }).then(function(data){
+    //         if(data){
+    //            console.log("successful,"+data.email+" "+data.password)
+               
+    //            localStorage.setItem("email",data.email);
+    //            localStorage.setItem("password",data.password); 
+    //         }
+    //         else{
+    //            $("#username").empty();
+    //            $("#password").empty();
+    //            $("#username").attr("placeholder","email or password not found") 
+    //         }
+    //     })
+    // }
+})</script>
 </body>
 
 </html>

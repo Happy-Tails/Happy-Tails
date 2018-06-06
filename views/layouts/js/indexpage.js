@@ -1,3 +1,4 @@
+console.log("this is not the right file");
 function searchTrail() {
     $("#showTrailSearch").empty();
     var city = $("#city").val();
@@ -24,29 +25,29 @@ function searchTrail() {
 
         var trailArray = [];
 
-        urlResponse.places.forEach(function(singleTrail) {
-    
+        urlResponse.places.forEach(function (singleTrail) {
+
             var name = singleTrail.name;
             var description = singleTrail.description;
             var length = singleTrail.activities[0].length;
             //trailArray.push(trail);'
             showTrail(name, description, length);
-              
+
         });
-     
+
     });
 }
 
-function showTrail(name, description, length){
+function showTrail(name, description, length) {
     $("#showTrailSearch").append(
-        "<div class='row'>" + 
+        "<div class='row'>" +
         "<div class='col-sm-6'>" +
         "<div class='card' id='NewTrail'>" +
-        "<div class='card-body'>" + 
+        "<div class='card-body'>" +
         "<h2 class='card-title' id='AddCardTitle'>" + name + "</h2>" +
         "<p class='card-text' id='AddCardText'>" + description + "</p>" +
         "<p id='length'>" + length + " miles" + "</p>" +
-        "<button class='addNewTrail' class='btn btn-primary'>Add Trail</button>" +
+        "<button class='addNewTrail' data-name='" + name + "' data-description'" + description + "' data-length'" + length + "' class='btn btn-primary'>Add Trail</button>" +
         "</div>" +
         "</div>" +
         "</div>"
@@ -56,16 +57,17 @@ function showTrail(name, description, length){
 
 
 $("#submit-trail").on("click", function (event) {
-            event.preventDefault();
-            searchTrail();
-        });
+    console.log("click");
+    event.preventDefault();
+    searchTrail();
+});
 
-function addTrail(name, description, length){
+function addTrail(name, description, length) {
     $("#addedTrails").append(
-        "<div class='row'>" + 
+        "<div class='row'>" +
         "<div class='col-sm-6'>" +
         "<div class='card' id='usertrails'>" +
-        "<div class='card-body'>" + 
+        "<div class='card-body'>" +
         "<h2 class='card-title' id='UserCardTitle'>" + name + "</h2>" +
         "<p class='card-text' id='UserCardText'>" + description + "</p>" +
         "<p id='length'>" + length + " miles" + "</p>" +
@@ -76,8 +78,19 @@ function addTrail(name, description, length){
     );
 }
 
-$(document).on("click", "#addNewTrail", function(event){
+$(document).on("click", ".addNewTrail", function (event) {
+    console.log("click");
     event.preventDefault();
     addTrail();
-    window.location.href ="/viewAccount";
+    var name = $(this).attr("data-name");
+    var description = $(this).attr("data-description");
+    var length = $(this).attr("data-length");
+    var data = {
+        name: name,
+        description: description,
+        length: length
+    };
+    $.post("/addTrail", data
+    )
 });
+

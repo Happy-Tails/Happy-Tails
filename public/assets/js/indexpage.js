@@ -1,3 +1,4 @@
+console.log("I'm connected");
 function searchTrail() {
     $("#showTrailSearch").empty();
     var city = $("#city").val();
@@ -46,7 +47,7 @@ function showTrail(name, description, length){
         "<h2 class='card-title' id='AddCardTitle'>" + name + "</h2>" +
         "<p class='card-text' id='AddCardText'>" + description + "</p>" +
         "<p id='length'>" + length + " miles" + "</p>" +
-        "<button id='addNewTrail' class='btn btn-primary'>Add Trail</button>" +
+        "<button class='addNewTrail' data-name='" + name + "' data-description='" + description + "' data-length='" + length + "' class='btn btn-primary'>Add Trail</button>" +
         "</div>" +
         "</div>" +
         "</div>"
@@ -56,6 +57,7 @@ function showTrail(name, description, length){
 
 
 $("#submit-trail").on("click", function (event) {
+            console.log("click");
             event.preventDefault();
             searchTrail();
         });
@@ -76,8 +78,23 @@ function addTrail(name, description, length){
     );
 }
 
-$(document).on("click", "#addNewTrail", function(event){
+$(document).on("click", ".addNewTrail", function(event){
+    console.log("click");
     event.preventDefault();
     addTrail();
-    window.location.href ="viewAccount.html";
+    console.log($(this));
+    var name = $(this).attr("data-name");
+    var description = $(this).attr("data-description");
+    var length = $(this).attr("data-length");
+    var data = {
+        name: name,
+        description: description,
+        length: length
+    };
+    console.log(data)
+    $.post("/addTrail", data).then(function(results){
+        console.log(results);
+        window.location.href="/viewAccount";
+    });
 });
+
