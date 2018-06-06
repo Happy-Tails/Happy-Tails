@@ -46,89 +46,100 @@ crudRouter.get("/user/login/:user/:password", function (req, res) {
 
 //1. create POST route /addTrail
 crudRouter.post("/addTrail", function (req, res) {
-console.log(req.body);
-//2. inside of that route, add that trail to the database 
-//connect it to the user - HOW?
+  // console.log(req.body, "line49");
+  //2. inside of that route, add that trail to the database 
+  //connect it to the user - HOW?
   db.Trails.create({
-    name: "trailName",
-    description: "trailDescription",
-    length: "trailLength"
-  //3. redirect to the page myTrails, /viewAccount
-  //4. go to js file associated with viewAccount.html, do an AJAX req to get the data (see ./js/indexpage.js)
-      }).then(() => {
-        res.redirect("/viewAccount");
-      });
+    trailName: req.body.name,
+    trailDescription: req.body.description,
+    trailLength: parseInt(req.body.length)
+    //3. redirect to the page myTrails, /viewAccount
+    //4. go to js file associated with viewAccount.html, do an AJAX req to get the data (see ./js/indexpage.js)
+  }).then(() => {
+    // res.redirect("/viewAccount");
+    res.send("trail created");
   });
+});
 
 //5. Create a GET route /getTrails. (in my indexpage.js correct?)
-crudRouter.get("/getTrails", function(req, res){
+crudRouter.get("/getTrails", function (req, res) {
 
+});
+
+crudRouter.get("/getAccountTrail", function (req, res) {
+  console.log("we just redirected");
+  db.Trails.findAll({}).then(function (data) {
+    console.log(data);
+    // console.log(data.dataValues);
+    res.send(data);
+  });
+ 
 });
 //6. That route will do a in the .then of the AJAX, get the data and use data to display all of the trails the person saved
 //Isn't this^ what our readTrail() does in our CRUD?
 //I'm having trouble understanding when we great routes vs CRUD..how do we call CRUD functions from the browswer side?
 
-  // CRUD function
+// CRUD function
 
-  // function createTrail() {
-  //     console.log("Adding your new trail...\n");
-  //     db.Trails.create({
-  //         name: "trail name",
-  //         description: "trail description",
-  //         length: "trail length"
-  //     }).then(function(err, res) {
-  //         console.log(res.affectedRows + " trail added!\n");
-  //         // Call updateTrail AFTER the INSERT completes
-  //         updateTrail();
-  //       });
-      //Need to put in correct table name
+// function createTrail() {
+//     console.log("Adding your new trail...\n");
+//     db.Trails.create({
+//         name: "trail name",
+//         description: "trail description",
+//         length: "trail length"
+//     }).then(function(err, res) {
+//         console.log(res.affectedRows + " trail added!\n");
+//         // Call updateTrail AFTER the INSERT completes
+//         updateTrail();
+//       });
+//Need to put in correct table name
 
 
-      // logs the actual query being run
-      //console.log(query.sql);
-    // }
+// logs the actual query being run
+//console.log(query.sql);
+// }
 
-    function updateTrail() {
-      console.log("Updating your saved trails...\n");
-      db.Trails.update({
+function updateTrail() {
+  console.log("Updating your saved trails...\n");
+  db.Trails.update({
 
-      }).then(function(err, res) {
-         console.log(res.affectedRows + " trails updated!\n");
-          // Call deleteTrail AFTER the UPDATE completes
-          deleteTrail();
-        });
-      //Need to put in the correct table name
-      // logs the actual query being run
-      //console.log(query.sql);
+  }).then(function (err, res) {
+    console.log(res.affectedRows + " trails updated!\n");
+    // Call deleteTrail AFTER the UPDATE completes
+    deleteTrail();
+  });
+  //Need to put in the correct table name
+  // logs the actual query being run
+  //console.log(query.sql);
+}
+
+function deleteTrail() {
+  console.log("Deleting selected trail...\n");
+  db.Trails.destroy({
+    where: {
+      id: req.params.id
     }
-
-    function deleteTrail() {
-      console.log("Deleting selected trail...\n");
-      db.Trails.destroy({
-        where:{
-          id: req.params.id
-        }
-      }).then(function(err, res) {
-          console.log(res.affectedRows + " trail(s) deleted!\n");
-          // Call readTrails AFTER the DELETE completes
-          readTrails();
-        });
-      //Need to add correct tableName
+  }).then(function (err, res) {
+    console.log(res.affectedRows + " trail(s) deleted!\n");
+    // Call readTrails AFTER the DELETE completes
+    readTrails();
+  });
+  //Need to add correct tableName
 
 
-    }
+}
 
-    function readTrails() {
-      console.log("Selecting all trails...\n");
-      db.Trails.findAll().then(function(res,err){
-        if (err) throw err;
-        // Log all results of the SELECT statement
-        console.log(res);
-        connection.end();
-      });
-    }
-  // createTrail();  
-  // ----------------------------------------------------
+function readTrails() {
+  console.log("Selecting all trails...\n");
+  db.Trails.findAll().then(function (res, err) {
+    if (err) throw err;
+    // Log all results of the SELECT statement
+    console.log(res);
+    connection.end();
+  });
+}
+// createTrail();  
+// ----------------------------------------------------
 
-  // Export routes
-  module.exports = crudRouter;
+// Export routes
+module.exports = crudRouter;

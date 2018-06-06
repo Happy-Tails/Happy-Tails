@@ -47,7 +47,7 @@ function showTrail(name, description, length){
         "<h2 class='card-title' id='AddCardTitle'>" + name + "</h2>" +
         "<p class='card-text' id='AddCardText'>" + description + "</p>" +
         "<p id='length'>" + length + " miles" + "</p>" +
-        "<button class='addNewTrail' data-name='" + name + "' data-description'" + description + "' data-length'" + length + "' class='btn btn-primary'>Add Trail</button>" +
+        "<button class='addNewTrail' data-name='" + name + "' data-description='" + description + "' data-length='" + length + "' class='btn btn-primary'>Add Trail</button>" +
         "</div>" +
         "</div>" +
         "</div>"
@@ -82,6 +82,7 @@ $(document).on("click", ".addNewTrail", function(event){
     console.log("click");
     event.preventDefault();
     addTrail();
+    console.log($(this));
     var name = $(this).attr("data-name");
     var description = $(this).attr("data-description");
     var length = $(this).attr("data-length");
@@ -90,10 +91,10 @@ $(document).on("click", ".addNewTrail", function(event){
         description: description,
         length: length
     };
-    $.ajax({
-        url: "/addTrail",
-        method: "POST",
-        body: data
-    })
+    console.log(data)
+    $.post("/addTrail", data).then(function(results){
+        console.log(results);
+        window.location.href="/viewAccount";
+    });
 });
 
