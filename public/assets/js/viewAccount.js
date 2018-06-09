@@ -5,9 +5,9 @@ $(document).ready(function () {
             // var item = val.dataValues;
 
             var trailDiv = $("<div>")
-            var titleDiv = $("<div>").text(val.trailName);
-            var descrDiv = $("<div>").text(val.trailDescription);
-            var lengthDiv = $("<div>").text(val.trailLength);
+            var titleDiv = $("<h2>").text(val.trailName);
+            var descrDiv = $("<p class='card-text' id='AddCardText'>").text(val.trailDescription);
+            var lengthDiv = $("<p id='length'>").text(val.trailLength);
             trailDiv.append(titleDiv).append(descrDiv).append(lengthDiv);
             $("#addedTrails").append(trailDiv);
         })

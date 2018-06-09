@@ -184,3 +184,12 @@ height: 100%;
   align-self: auto;
   color: black;
 };
+
+#addedTrails {
+  display:flex;
+  text-align: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-self: auto;
+  color: black;
+}
