@@ -13,7 +13,7 @@ var sequelize = new Sequelize("sequelize_library", "root", "root", {  //the firs
     },
     // jawsDB
     jawsDB: {
-        port: process.env.PORT || 8080,
+        port: 3306,
         host: "<host name>",
         user: "<name of user>",
         password: "<password>",
