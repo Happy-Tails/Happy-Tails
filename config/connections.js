@@ -10,15 +10,8 @@ var sequelize = new Sequelize("sequelize_library", "root", "root", {  //the firs
         max: 5,
         min: 0,
         idle: 10000
-    },
-    // jawsDB
-    jawsDB: {
-        port: process.env.PORT || 3306,
-        host: "<host name>",
-        user: "<name of user>",
-        password: "<password>",
-        database: "<name of database>"
     }
+
 });
 
 
