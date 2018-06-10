@@ -16,53 +16,31 @@
 <body>
     <!--Nav Bar-->
     <nav id='home-nav' class='navbar navbar-inverse'>
-        <div class='container-fluid'>
-            <div class='navbar-header'>
-                <a class='navbar-brand' href='/index'>Hiking Tails</a>
+            <div class='container-fluid'>
+              <div class='navbar-header'>
+                <a class='navbar-brand' href='/index'>Home</a>
+              </div>
+              <ul class='nav navbar-nav'>
+                <li>
+                  <a class="nav-item nav-link active" href='/addTrails'>Find Trails</a>
+                </li>
+                <li>
+                  <a class="nav-item nav-link active" href='/viewAccount'>My Trails</a>
+                </li>
+                <li>
+                  <a class="nav-item nav-link active" href='/signup'>Sign Up</a>
+                </li>
+              </ul>
             </div>
-            <ul class='nav navbar-nav'>
-                <li>
-                    <a class="nav-item nav-link active" href='/index'>Home</a>
-                </li>
-                <li>
-                    <a class="nav-item nav-link active" href='/login'>Log In</a>
-                </li>
-                <li>
-                    <a class="nav-item nav-link active" href='/signup'>Sign Up</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
+          </nav>
 
     <!--why are these not aligned?-->
     <form id="signup-form" action="user/signup" method="post">
 
         <div class="container" id="mainsignup">
-            <h3>Sign Up</h3>
+            <h3>Login</h3>
             <div class="row">
-                <div class="input-field col s6" id="first_name">
-                    First Name:
-                    <input id="firstName" type="text" class="validate" name="firstName" required>
-                    <label for="first_name"></label>
-                </div>
-                <div class="input-field col s6" id= "last_name">
-                    Last Name:
-                    <input id="lastName" type="text" class="validate" name="lastName" required>
-                    <label for="last_name"></label>
-                </div>
-                <div class="input-field col s6" id="pups_name">
-                    Pup's Name:
-                    <input id="pupsName" type="text" class="validate" name="pupsName" required>
-                    <label for="pups_name"></label>
-                </div>
-            </div>
-            <div class="row">
-            </div>
-            <div class="row">
+                
                 <div class="input-field col s6" id="supemail">
                     Email:
                     <input id="username" type="email" class="validate" name="email" required>

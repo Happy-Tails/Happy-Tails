@@ -4,7 +4,7 @@ $(document).ready(function () {
         $.each(data, function (i, val) {
             // var item = val.dataValues;
 
-            var trailDiv = $("<div>")
+            var trailDiv = $("<div id='yourTrail'>");
             var titleDiv = $("<h2>").text(val.trailName);
             var descrDiv = $("<p class='card-text' id='AddCardText'>").text(val.trailDescription);
             var lengthDiv = $("<p id='length'>").text(val.trailLength);
