@@ -95,24 +95,49 @@ h3{
 
 #first_name{
   padding: 10px;
+  color:white;
+}
+
+#firstName{
+  color:grey;
 }
 
 #last_name{
   padding-bottom: 10px;
+  color:white;
+}
+
+#lastName{
+  color:grey;
 }
 
 #pups_name{
   margin-right: 10px;
   padding-bottom: 10px;
+  color: white;
+}
+
+#pupsName{
+  color:grey;
+}
+
+#username{
+  color:grey;
 }
 
 #supemail{
   margin-left: 30px;
   padding-bottom: 10px;
+  color:white;
 }
 
 #suppassword{
   padding-bottom: 10px;
+  color:white;
+}
+
+#password{
+  color:grey;
 }
 
 .container {
@@ -192,4 +217,8 @@ height: 100%;
   flex-direction: row;
   align-self: auto;
   color: black;
+}
+
+#yourTrail{
+  color:white;
 }
