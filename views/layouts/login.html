@@ -16,23 +16,26 @@
 <body>
     <!--Nav Bar-->
     <nav id='home-nav' class='navbar navbar-inverse'>
-            <div class='container-fluid'>
-              <div class='navbar-header'>
+        <div class='container-fluid'>
+            <div class='navbar-header'>
                 <a class='navbar-brand' href='/index'>Home</a>
-              </div>
-              <ul class='nav navbar-nav'>
-                <li>
-                  <a class="nav-item nav-link active" href='/addTrails'>Find Trails</a>
-                </li>
-                <li>
-                  <a class="nav-item nav-link active" href='/viewAccount'>My Trails</a>
-                </li>
-                <li>
-                  <a class="nav-item nav-link active" href='/signup'>Sign Up</a>
-                </li>
-              </ul>
             </div>
-          </nav>
+            <ul class='nav navbar-nav'>
+                <li>
+                    <a class="nav-item nav-link active" href='/addTrails'>Find Trails</a>
+                </li>
+                <li>
+                    <a class="nav-item nav-link active" href='/viewAccount'>My Trails</a>
+                </li>
+                <li>
+                    <a class="nav-item nav-link active" href='/login'>Log In</a>
+                </li>
+                <li>
+                    <a class="nav-item nav-link active" href='/signup'>Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <!--why are these not aligned?-->
     <form id="signup-form" action="user/signup" method="post">
@@ -40,7 +43,7 @@
         <div class="container" id="mainsignup">
             <h3>Login</h3>
             <div class="row">
-                
+
                 <div class="input-field col s6" id="supemail">
                     Email:
                     <input id="username" type="email" class="validate" name="email" required>
@@ -93,66 +96,66 @@
         </form> -->
     </div>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-        <script>
-        $(document).ready(function(){
-    
-    $("#email").attr("placeholder",sessionStorage.getItem("emailPlaceholder")|| "abcd@domain.net")
-    $(document).on("click","#submit-signin",function(){
-        
-        
-        var cred = {
-            email: $("#email").val().trim(),
-            password: $("#password").val().trim()
-        };
-        
-        $.ajax({
-            url: "/user/login/"+cred.email+"/"+cred.password,
-            type: "GET",
-            
-        }).then(function(data,err){
-            
-            if(data){
-               console.log("successful,"+data.email+" "+data.password)
-               
-               localStorage.setItem("email",data.email);
-               localStorage.setItem("password",data.password); 
-            }
-            else{
-            console.log("cant find");
-               $("#email").empty();
-               $("#password").empty();
-               sessionStorage.setItem("emailPlaceholder","cannot find email and/or password"); 
-            }
-        })
-    });
+    <script>
+        $(document).ready(function () {
 
-    // var checkLogin = function(event){
-    //     //event.preventDefault()
-    //     var cred = {
-    //         email: $("#username").val().trim(),
-    //         password: $("#password").val().trim(),
-    //     };
-    //     $.ajax({
-    //         url: "/api/login/",
-    //         method: "GET",
-            
-    //     }).then(function(data){
-    //         if(data){
-    //            console.log("successful,"+data.email+" "+data.password)
-               
-    //            localStorage.setItem("email",data.email);
-    //            localStorage.setItem("password",data.password); 
-    //         }
-    //         else{
-    //            $("#username").empty();
-    //            $("#password").empty();
-    //            $("#username").attr("placeholder","email or password not found") 
-    //         }
-    //     })
-    // }
-})</script>
+            $("#email").attr("placeholder", sessionStorage.getItem("emailPlaceholder") || "abcd@domain.net")
+            $(document).on("click", "#submit-signin", function () {
+
+
+                var cred = {
+                    email: $("#email").val().trim(),
+                    password: $("#password").val().trim()
+                };
+
+                $.ajax({
+                    url: "/user/login/" + cred.email + "/" + cred.password,
+                    type: "GET",
+
+                }).then(function (data, err) {
+
+                    if (data) {
+                        console.log("successful," + data.email + " " + data.password)
+
+                        localStorage.setItem("email", data.email);
+                        localStorage.setItem("password", data.password);
+                    }
+                    else {
+                        console.log("cant find");
+                        $("#email").empty();
+                        $("#password").empty();
+                        sessionStorage.setItem("emailPlaceholder", "cannot find email and/or password");
+                    }
+                })
+            });
+
+            // var checkLogin = function(event){
+            //     //event.preventDefault()
+            //     var cred = {
+            //         email: $("#username").val().trim(),
+            //         password: $("#password").val().trim(),
+            //     };
+            //     $.ajax({
+            //         url: "/api/login/",
+            //         method: "GET",
+
+            //     }).then(function(data){
+            //         if(data){
+            //            console.log("successful,"+data.email+" "+data.password)
+
+            //            localStorage.setItem("email",data.email);
+            //            localStorage.setItem("password",data.password); 
+            //         }
+            //         else{
+            //            $("#username").empty();
+            //            $("#password").empty();
+            //            $("#username").attr("placeholder","email or password not found") 
+            //         }
+            //     })
+            // }
+        })</script>
 </body>
 
 </html>
