@@ -37,14 +37,13 @@
         </div>
     </nav>
 
-    <!--why are these not aligned?-->
-    <form id="signup-form" action="user/signup" method="post">
+    <form id="submit-signin">
 
         <div class="container" id="mainsignup">
             <h3>Login</h3>
             <div class="row">
 
-                <div class="input-field col s6" id="supemail">
+                <div class="input-field col s6" id="email">
                     Email:
                     <input id="username" type="email" class="validate" name="email" required>
                     <label for="email"></label>
@@ -98,7 +97,7 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-    <script>
+    <!-- <script>
         $(document).ready(function () {
 
             $("#email").attr("placeholder", sessionStorage.getItem("emailPlaceholder") || "abcd@domain.net")
@@ -155,7 +154,8 @@
             //         }
             //     })
             // }
-        })</script>
+        })</script> -->
+        <script src="./assets/js/signIn.js"></script>
 </body>
 
 </html>
